@@ -5,8 +5,8 @@ Live **RGB + depth** streaming from an Xbox 360 **Kinect model 1473** on Ubuntu
 browser MJPEG live view, a headless frame grabber, a millisecond USB enumeration
 watcher used to debug the hardware, and a one-shot setup script.
 
-![RGB + colorized depth](docs/sample_rgbd.jpg)
-*Left: RGB. Right: colorized depth (blue = near, red = far). ~30 fps.*
+Output is RGB on the left and colorized depth on the right (blue = near, red =
+far) at ~30 fps. Run `stream_server.py` and open the browser to see it live.
 
 ---
 
@@ -195,7 +195,6 @@ disappears it resets the libfreenect sync engine and reopens automatically.
 | `capture_frames.py` | Headless still capture to `captures/` (png + raw npy). |
 | `kinect_usb_watch.py` | Millisecond USB enumeration watcher (hardware debugging). |
 | `patches/0001-1473-sync-camera-only.patch` | The camera-only sync patch. |
-| `docs/sample_rgbd.jpg` | Example output frame. |
 | `WORKLOG.md` | Chronological log of how this was brought up. |
 | `libfreenect/`, `venv/` | Build tree + python env — **git-ignored**, recreated by `setup.sh`. |
 
