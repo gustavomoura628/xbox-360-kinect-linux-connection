@@ -29,6 +29,25 @@ power problem, not software** — read the hardware section.
 
 ---
 
+## Capabilities
+
+Everything the 1473 hardware exposes, and where this repo stands:
+
+| Capability | Type | Status |
+|---|---|---|
+| RGB camera (640×480) | read | ✅ done |
+| Depth map (640×480) | read | ✅ done |
+| 3-axis accelerometer | read | ✅ done |
+| Tilt motor (±31°) | actuate | ✅ done |
+| Status LED (green / red / blink) | actuate | ✅ done |
+| Raw IR camera (the speckle pattern!) | read | ❌ not yet |
+| 4-mic array audio | read | ❌ not yet |
+| Higher-res RGB (1280×1024) | read | ❌ not yet |
+| Metric / registered depth (mm, aligned to RGB) | read | ❌ not yet |
+| Extra LED states (yellow, red/yellow blink) | actuate | ◐ partial |
+
+---
+
 ## 1. How the Kinect 360 works (hardware side)
 
 ### 1.1 What's inside model 1473
@@ -298,10 +317,8 @@ disappears it resets the libfreenect sync engine and reopens automatically.
 - **`/dev/video` device** — pipe frames through `v4l2loopback` so generic apps
   (OBS, ffplay, browsers) see the Kinect as a normal webcam.
 
-## What works
-RGB + depth streaming (~30 fps), tilt motor (±31°), status LED, and
-accelerometer — all controllable from the browser UI or CLI, camera and motor
-simultaneously.
+For the full read/actuate inventory and what's done vs. not, see the
+[Capabilities](#capabilities) matrix near the top.
 
 ## Environment this was validated on
 Ubuntu 22.04.5 (kernel 6.8), x86_64, Python 3.10, libfreenect master `09a1f09`,
